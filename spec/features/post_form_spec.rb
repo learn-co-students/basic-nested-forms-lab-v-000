@@ -11,21 +11,21 @@ describe "the post form", :type => :feature do
 
   it "creates an author when author fields are filled in" do
     visit '/posts/new'
-    fill_in :author_name, with: 'Locke'
+    fill_in :post_author_attributes_name, with: 'Locke'
     find('input[name="commit"]').click    
     expect(Post.last.author.name).to eq 'Locke'
   end
 
   it "doesn't duplicate authors" do
     visit '/posts/new'
-    fill_in :author_name, with: 'Locke'
+    fill_in :post_author_attributes_name, with: 'Locke'
     find('input[name="commit"]').click    
     visit '/posts/new'
     first_locke = Post.last.author
     
-    fill_in :author_name, with: 'Locke'
+    fill_in :post_author_attributes_name, with: 'Locke'
     find('input[name="commit"]').click
     second_locke = Post.last.author
-    expect(first_lock).to eq second_locke
+    expect(first_locke).to eq second_locke
   end
 end

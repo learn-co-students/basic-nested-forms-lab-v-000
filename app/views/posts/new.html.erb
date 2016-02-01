@@ -1,0 +1,14 @@
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.fields_for :author, Author.new do |author| %>
+	  <%= author.label :name %>
+    <%= author.text_field :name %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

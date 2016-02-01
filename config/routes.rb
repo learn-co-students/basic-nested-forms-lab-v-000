@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts, only: [:new, :show, :create]
   resources :recipes, only: [:index, :new, :create, :show, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
