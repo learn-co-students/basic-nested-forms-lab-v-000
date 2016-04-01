@@ -10,11 +10,11 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    10.times { @recipe.ingredients.build }
   end
 
   def create
-    redirect_to Recipe.create(recipe_params)
+    @recipe = Recipe.create(recipe_params)
+    redirect_to recipe_path(@recipe)
   end
 
   private
