@@ -4,6 +4,8 @@
 
 <ul>
 <% @recipe.ingredients.each do |ingredient| %>
-  <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
+  <% if ingredient.name != '' && ingredient.quantity != '' %>
+    <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
+  <% end %>
 <% end %>
 </ul>
