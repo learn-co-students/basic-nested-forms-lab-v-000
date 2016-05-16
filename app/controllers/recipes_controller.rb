@@ -9,27 +9,23 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    build_ten_ingredient_fields
-
-  end
-
-  def create
-    @recipe = Recipe.create(recipe_params)
-    redirect_to recipe_path(@recipe)
-  end
-
-
-
-  private 
-
-  def recipe_params
-    params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
-  end
-  def build_ten_ingredient_fields
-      10.times do |i|
+    10.times do |i|
       n = 1
       @recipe.ingredients.build(id: n)
       n+=1
     end
   end
-end
+
+    def create
+      @recipe = Recipe.create(recipe_params)
+      redirect_to recipe_path(@recipe)
+    end
+
+
+    private 
+
+    def recipe_params
+      params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
+    end
+
+  end
