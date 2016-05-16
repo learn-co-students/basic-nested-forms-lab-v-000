@@ -9,11 +9,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    10.times do |i|
-      n = 1
-      @recipe.ingredients.build(id: n)
-      n+=1
-    end
+    build_ten_ingredient_fields
 
   end
 
@@ -28,5 +24,12 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
+  end
+  def build_ten_ingredient_fields
+      10.times do |i|
+      n = 1
+      @recipe.ingredients.build(id: n)
+      n+=1
+    end
   end
 end
