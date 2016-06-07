@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+
+
   def show
     @recipe = Recipe.find(params[:id])
   end
@@ -8,9 +10,28 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new
+      @recipe = Recipe.new
+      @recipe.ingredients.build()
+      @recipe.ingredients.build()
   end
+  #Could refactor here to 2.times do |y| for the @recipe.ingredients.build()
 
   def create
+   @recipe = Recipe.create(recipe_params)
+   redirect_to recipe_path(@recipe)
   end
+
+
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
+  end
+
+
+
+
+
+
 end
