@@ -5,5 +5,7 @@
 <ul>
 <% @recipe.ingredients.each do |ingredient| %>
   <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
+
+  <%= indredigent.text_field :name %>
 <% end %>
 </ul>
