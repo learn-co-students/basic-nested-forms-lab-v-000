@@ -9,12 +9,11 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.build(name: "")
-    @recipe.ingredients.build(name: "")
+    @recipe.ingredients.build
+    @recipe.ingredients.build
   end
 
   def create
-    byebug
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
