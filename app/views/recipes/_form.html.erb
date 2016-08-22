@@ -1,3 +1,22 @@
+<!--
+ingredient.name: string
+ingredient.quantity: string -->
+<!-- ingredients -->
+<!-- Build a recipe form that accepts ten ingredients! It should automatically create the new Ingredient objects. -->
+
+
 <%= form_for @recipe do |f| %>
   Title: <%= f.text_field :title %>
+    <%= f.fields_for :ingredients do |ingredient| %>
+      <!-- Ingrdient Label-->
+      <%= ingredient.label :name %>
+      <!-- Ingrdient Name-->
+    <%= ingredient.text_field :name  %>
+
+    <%= ingredient.label :quantity %>
+    <!-- Ingrdient  -->
+  <%= ingredient.text_field :quantity %>
+
+  <% end %>
+  <%= f.submit %>
 <% end %>
