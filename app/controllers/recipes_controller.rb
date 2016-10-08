@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @recipe.ingredients.build
     @recipe.ingredients.build
+    # to have an object model to use for the form view so taht it won't be empty
   end
 
   def create
