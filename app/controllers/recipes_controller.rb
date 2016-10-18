@@ -1,5 +1,7 @@
+require 'pry'
 class RecipesController < ApplicationController
-  def show
+ 
+ def show
     @recipe = Recipe.find(params[:id])
   end
 
@@ -9,8 +11,29 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.ingredients.build[:id => "0"]
+    @recipe.ingredients.build[:id => "1"]
   end
 
-  def create
+  def create    
+    @recipe = Recipe.create(recipe_params) 
+
+    if @recipe.save
+      redirect_to recipes_path
+    end 
+  end
+
+  def edit
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+    redirect_to recipes_path
+  end
+
+  private
+  def recipe_params
+    params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])   
   end
 end
