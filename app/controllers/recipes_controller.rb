@@ -5,8 +5,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.build(recipe_id: '1')
-    @recipe.ingredients.build(recipe_id: '2')
+    2.times { @recipe.ingredients.build }
   end
 
   def index
