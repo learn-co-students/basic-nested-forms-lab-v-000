@@ -3,9 +3,8 @@ class Recipe < ActiveRecord::Base
   accepts_nested_attributes_for :ingredients
 
   def ingredients_attributes=(ingr)
-      binding.pry
-      ingr.each do |i|
-          self.ingredients << Ingredient.find_or_create_by(name: ingr.name)
+      ingr.values.collect do |i|
+          self.ingredients << Ingredient.find_or_create_by(name: i[:name], quantity: i[:quantity])
       end
   end
 
