@@ -1,3 +1,18 @@
 <%= form_for @recipe do |f| %>
-  Title: <%= f.text_field :title %>
+  Title: <%= f.text_field :title %> <br>
+
+  <%= f.fields_for :ingredients do |ingredients_builder| %>
+    <%= ingredients_builder.label :quantity %>
+    <%= ingredients_builder.text_field :quantity %>
+
+    <%= ingredients_builder.label :name %>
+    <%= ingredients_builder.text_field :name %>
+
+    <br><br>
+
+
+  <% end %>
+
+  <%= f.submit %>
+
 <% end %>
