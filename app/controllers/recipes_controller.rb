@@ -9,13 +9,13 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    2.times { @recipe.ingredient.build }
+    2.times { @recipe.ingredients.build }
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      redirect_to recipe_path
+      redirect_to recipe_path(@recipe)
     else
       render :new
     end
