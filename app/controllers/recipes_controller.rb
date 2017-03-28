@@ -11,11 +11,9 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     2.times {@recipe.ingredients.build}
-    # @recipe.ingredients.build
   end
 
   def create
-    # binding.pry
     @recipe = Recipe.create(recipe_params)
     redirect_to recipe_path(@recipe)
   end
