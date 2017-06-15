@@ -1,3 +1,43 @@
-<%= form_for @recipe do |f| %>
-  Title: <%= f.text_field :title %>
-<% end %>
+<%= form_for @recipe do |recipe_builder|%>
+  <%= recipe_builder.label :title%>
+  <%= recipe_builder.text_field :title%><br>
+
+  <%= recipe_builder.fields_for :ingredients do |ingre_builder|%>
+	  <fieldset>
+	     <p>Ingredients</p>
+	  	 <%= ingre_builder.label :name %>
+	     <%= ingre_builder.text_field :name%><br>
+
+	  	<%= ingre_builder.label :quantity%>
+	    <%= ingre_builder.text_field :quantity%>
+	  </fieldset> 
+
+  <% end%>
+
+  <%= recipe_builder.submit %>
+<% end%>
+
+
+
+<!-- 
+
+<form method="post" action"recipes">
+	Name: <input type="text" name="recipe[name]">
+	
+	<fieldset>
+	    <p>Ingredients</p>
+		Name: <input type="text" name="recipe[ingredients][][name]">
+	    Quantity: <input type="text" name="recipe[ingredients][][quantity][]">
+	</fieldset>
+
+	<fieldset>
+	    <p>Ingredients</p>
+		Name: <input type="text" name="recipe[ingredients][][name]">
+	    Quantity: <input type="text" name="recipe[ingredients][][quantity][]">
+	</fieldset>
+
+	<input type="submit" name="" value="submit">
+</form>
+
+
+ -->
