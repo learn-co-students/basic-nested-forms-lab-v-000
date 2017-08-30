@@ -1,61 +1,29 @@
 class RecipesController < ApplicationController
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
+before_action :set_recipe, only: [:show, :update, :edit, :destroy]
 
   def index
     @recipes = Recipe.all
   end
 
   def new
+    binding.pry
     @recipe = Recipe.new
+    2.times {@recipe.ingredients.build}
   end
 
   def create
-    Recipe.create(recipe_params)
-    redirect_to recipe_path
+    binding.pry
+    @recipe = Recipe.create(recipe_params)
+    redirect_to recipe_path(@recipe)
+  end
+
+  private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params
-    params.require(:recipe).permit(
-      :title,
-      ingredients_attributes: [
-        :attributes_0_quantity,
-        :attributes_0_name,
-        :attributes_1_quantity,
-        :attributes_1_name
-      ]
-    )
+    params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
   end
 end
-
-# def new
-#   @person = Person.new
-#   @person.addresses.build(address_type: 'work')
-#   @person.addresses.build(address_type: 'home')
-# end
-#
-# def create
-#   Person.create(person_params)
-#   redirect_to people_path
-# end
-#
-# def index
-#   @people = Person.all
-# end
-#
-# private
-#
-# def person_params
-#   params.require(:person).permit(
-#     :name,
-#     addresses_attributes: [
-#       :street_address_1,
-#       :street_address_2,
-#       :city,
-#       :state,
-#       :zipcode,
-#       :address_type
-#     ]
-#   )
-# end
