@@ -14,7 +14,7 @@ before_action :set_recipe, only: [:show, :update, :edit, :destroy]
 
   def create
     @recipe = Recipe.create(recipe_params)
-    redirect_to @recipe
+    redirect_to recipe_path(@recipe)
   end
 
   private
