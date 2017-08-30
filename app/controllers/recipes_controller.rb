@@ -6,13 +6,13 @@ before_action :set_recipe, only: [:show, :update, :edit, :destroy]
   end
 
   def new
-    binding.pry
     @recipe = Recipe.new
-    2.times {@recipe.ingredients.build}
+    # add two empty ingredients to fill out
+    @recipe.ingredients.build
+    @recipe.ingredients.build
   end
 
   def create
-    binding.pry
     @recipe = Recipe.create(recipe_params)
     redirect_to recipe_path(@recipe)
   end
@@ -24,6 +24,7 @@ before_action :set_recipe, only: [:show, :update, :edit, :destroy]
   end
 
   def recipe_params
+    # modify method to accept the the params hash keys
     params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
   end
 end
