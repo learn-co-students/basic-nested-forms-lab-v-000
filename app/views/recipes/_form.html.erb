@@ -1,3 +1,14 @@
 <%= form_for @recipe do |f| %>
-  Title: <%= f.text_field :title %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :id => "recipe_title" %><br>
+  <!-- fields_for will create a params hash -->
+  <%= f.fields_for :ingredients do |fields| %>
+    <%= fields.label :name %>
+    <%=fields.text_field :name %>
+    <%= fields.label :quantity %>
+    <%=fields.text_field :quantity %>
+    <br>
+  <% end %>
+
+<%=f.submit%>
 <% end %>
