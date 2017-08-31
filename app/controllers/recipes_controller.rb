@@ -24,7 +24,7 @@ before_action :set_recipe, only: [:show, :update, :edit, :destroy]
   end
 
   def recipe_params
-    # modify method to accept the the params hash keys
+    # modify method to accept the params hash keys
     params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
   end
 end
