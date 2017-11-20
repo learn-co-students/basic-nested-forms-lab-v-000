@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+recipe = Recipe.new("Apple Pie")
+recipe.ingredients.build(:name => "apples", :quantity => 4)
+recipe.ingredients.build(:name => "crust", :quantity => 1)
+
