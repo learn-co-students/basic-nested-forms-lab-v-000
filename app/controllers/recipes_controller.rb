@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
 
   def create
     recipe = Recipe.create(recipe_params)
-    binding.pry
+    #binding.pry
     redirect_to recipe_path(recipe)
   end
 
@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(
     :title,
     ingredient_attributes: [
+      :id,
       :name,
       :quantity
     ]
