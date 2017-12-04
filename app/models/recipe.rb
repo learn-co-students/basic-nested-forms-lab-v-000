@@ -5,8 +5,8 @@ class Recipe < ActiveRecord::Base
   def ingredients_attributes=(ingr)
       ingr.each do |i,ingredient|
 
-      self.ingredients << Ingredient.find_or_create_by(name: ingredient['name'], quantity: ingredient['quantity'])
-   # self.ingredients.update(ingredient)  #explain this line.  from Basic Nested Forms ReadMe
+      self.ingredients << Ingredient.find_or_create_by(name: ingredient['name'])
+      self.ingredients.update(ingredient)
     end
   end
 end
