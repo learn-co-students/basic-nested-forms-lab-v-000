@@ -14,13 +14,13 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe=Recipe.new
-    @recipe.ingredients_attributes=(params[:recipe][ingredients_attributes])
-    if @recipe.save
+    @recipe=Recipe.create(recipe_params)
+    # @recipe.ingredients_attributes=(params[:recipe][ingredients_attributes])
+    # if @recipe.save
       redirect_to recipe_path
-    else 
-      render :new 
-    end 
+    # else 
+    #   render :new 
+    # end 
   end
   
   private 
