@@ -9,13 +9,11 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.build
+    2.times {@recipe.ingredients.build}
   end
 
   def create
-    binding.pry
     @recipe = Recipe.new(recipe_params)
-    # @recipe.ingredients_attributes=(params[:recipe][:ingredients_attributes])
 
     if @recipe.save
       redirect_to recipe_path(@recipe)

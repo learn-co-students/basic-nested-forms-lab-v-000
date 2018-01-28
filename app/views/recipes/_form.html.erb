@@ -7,22 +7,17 @@
   </p>
 
   <h3>Ingredients</h3>
-  <p>
-    <label for="name">Name:</label>
-    <input type="text" name="recipe[ingredients_attributes][][name]" value="">
-  </p>
-  <p>
-    <label for="name">Quantity:</label>
-    <input type="text" name="recipe[ingredients_attributes][][quantity]" value="">
-  </p>
-  <p>
-    <label for="name">Name:</label>
-    <input type="text" name="recipe[ingredients_attributes][][name]" value="">
-  </p>
-  <p>
-    <label for="name">Quantity:</label>
-    <input type="text" name="recipe[ingredients_attributes][][quantity]" value="">
-  </p>
+  <%= f.fields_for :ingredients do |ingredient_builder| %>
+    <p>
+      <%= ingredient_builder.label :name %>
+      <%= ingredient_builder.text_field :name %>
+    </p>
+
+    <p>
+      <%= ingredient_builder.label :quantity %>
+      <%= ingredient_builder.text_field :quantity %>
+    </p>
+  <% end %>
 
   <%= f.submit "Create Recipe" %>
 <% end %>
