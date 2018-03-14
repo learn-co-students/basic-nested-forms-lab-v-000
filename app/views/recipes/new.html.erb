@@ -1,1 +1,15 @@
-<%= render 'form', recipe: @recipe %>
+<%= form_for @recipe do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %> <br><br>
+
+  <%= f.fields_for :ingredients do |ingrd| %>
+    <b>Ingredients</b> <br>
+    <%= ingrd.label :name %>
+    <%= ingrd.text_field :name %> <br>
+
+    <%= ingrd.label :quantity %>
+    <%= ingrd.text_field :quantity %> <br> <br>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
