@@ -1,0 +1,12 @@
+params
+  {
+  "recipe" =>
+    {
+      "title" => "soup", 
+      "ingredients_attributes" => 
+      {
+        "0" => {"name" => "broth", "quantity" => "1 pint"}, 
+        "1" => {"name"=>"carrots", "quantity"=>"3"}
+       }
+    } 
+  }  
