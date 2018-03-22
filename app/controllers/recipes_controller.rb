@@ -11,12 +11,19 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @recipe.ingredients.build
     @recipe.ingredients.build
+    # 2.times { @recipe.ingredients.build }
   end
 
   def create
     recipe = Recipe.create(recipe_params)
-    redirect_to recipes_path
+    redirect_to recipe
   end
+
+  # def update
+  #   recipe = Recipe.find(params[:id])
+  #   recipe.update(recipe_params)
+  #   redirect_to recipe
+  # end
 
   private
     def recipe_params
