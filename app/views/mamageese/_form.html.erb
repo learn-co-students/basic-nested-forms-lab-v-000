@@ -1,0 +1,25 @@
+<h1>New MamaGoose</h1>
+<%= form_for @mamagoose do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br>
+</p>
+<p>
+  <%= f.label :house %>
+  <%= f.text_field :house %> <br>
+</p>
+<br>
+<h2>New Gozlinot for the New Mamagoose</h2>
+
+  <%= f.fields_for :gozlinot do |agamit| %>
+    <h3>This is a new Gozlin</h3>
+    <%= agamit.label :name %>
+    <%= agamit.text_field :name %>
+
+    <%= agamit.label :age %>
+    <%= agamit.text_field :age %>
+    <p>
+  <% end %>
+
+  <%= f.submit "Commit" %>
+<% end %>

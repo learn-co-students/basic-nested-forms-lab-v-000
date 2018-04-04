@@ -1,0 +1,9 @@
+<h1>MamaGoose Index Page</h1>
+
+<h2>
+  <ul>
+    <% @mamageese.each do |goose| %>
+      <li><%= link_to goose.name, goose %></li>
+    <% end %>
+  </ul>
+</h2>

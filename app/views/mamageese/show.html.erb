@@ -1,0 +1,9 @@
+<h1>Mama-Goose <%= @mamagoose.name %></h1>
+
+<h2>Offspring:</h2>
+
+<ul>
+  <% @mamagoose.gozlinot.each do |goz| %>
+    <li><%= "#{goz.name} is #{goz.age} years old" %></li>
+  <% end %>
+</ul>
