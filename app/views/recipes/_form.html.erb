@@ -7,15 +7,15 @@
 </p>
 
 <h3>Ingredients</h3>
-<%= f.fields_for :ingredients do |ingredient_builder| %>
+<%= f.fields_for :ingredients do |ingredient| %>
 <p>
-  <%= ingredient_builder.label :name %>
-  <%= ingredient_builder.text_field :name %>
+  <%= ingredient.label :name %>
+  <%= ingredient.text_field :name %>
 </p>
 
 <p>
-  <%= ingredient_builder.label :quantity %>
-  <%= ingredient_builder.text_field :quantity %>
+  <%= ingredient.label :quantity %>
+  <%= ingredient.text_field :quantity %>
 </p>
 <% end %>
 

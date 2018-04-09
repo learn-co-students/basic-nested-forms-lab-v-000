@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      redirect_to recipe_path(@recipe)
+      redirect_to recipe_path(@recipe), notice: "Your recipe was created."
     else
       render :new
     end
