@@ -3,11 +3,11 @@
 
   <h4>Ingredients:</h4>
   <%= f.fields_for :ingredients do |x| %>
-  <%= x.label :name %>
-  <%= x.text_field :name %><br>
-  <%= x.label :quantity %>
-  <%= x.text_field :quantity %><br>
+    <%= x.label :name %>
+    <%= x.text_field :name %><br>
+    <%= x.label :quantity %>
+    <%= x.text_field :quantity %><br>
   <% end %>
-  
+
   <%= f.submit %>
 <% end %>
