@@ -21,4 +21,15 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
   end
+  #steps to create a nested form:
+
+  #model: use accepts_nested_attributes_for :ingredients macro or:
+  # =>    preferably, define a writer for the attributes ex. ingredients_attributes=(ingredients_attributes)
+
+  #view: within the form_for iteration, create a fields_for interator for :ingredients
+  # => with the label and corresponding text_field(input tag)
+
+  #controller: for the new action to work correctly,
+  # => create an instance of the nested attribute,
+  # => with a default value that the user input will replace.
 end
