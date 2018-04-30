@@ -9,11 +9,13 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    2.times { @recipe.ingredients.build }
+    2.times { @recipe.ingredients.build } #has_many adds collection.build
+    #belongs_to adds via build_association ex. @recipe.build_ingredients.
+
     #build method creates an instance of an ingredients object that is
-    #already associated with the receiver (recipe object) through the model
+    #already associated with the receiver (recipe object) through the model.
     #Instantiation via .build creates a foreign key of
-    #the parent object(recipe) while Ingredients.new will not
+    #the parent object(recipe) while Ingredients.new will not.
   end
 
   def create
