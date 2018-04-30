@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     2.times { @recipe.ingredients.build }
+    #build method creates an instance of an ingredients object that is
+    #already associated with the receiver (recipe object) through the model 
   end
 
   def create
@@ -24,7 +26,7 @@ class RecipesController < ApplicationController
   #steps to create a nested form:
 
   #model: use accepts_nested_attributes_for :ingredients macro or:
-  # =>    preferably, define a writer for the attributes ex. ingredients_attributes=(ingredients_attributes)
+  # => preferably, define a writer for the attributes ex. ingredients_attributes=(ingredients_attributes)
 
   #view: within the form_for iteration, create a fields_for interator for :ingredients
   # => with the label and corresponding text_field(input tag)
