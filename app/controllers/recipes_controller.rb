@@ -11,7 +11,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     2.times { @recipe.ingredients.build }
     #build method creates an instance of an ingredients object that is
-    #already associated with the receiver (recipe object) through the model 
+    #already associated with the receiver (recipe object) through the model
+    #Instantiation via .build creates a foreign key of
+    #the parent object(recipe) while Ingredients.new will not
   end
 
   def create
