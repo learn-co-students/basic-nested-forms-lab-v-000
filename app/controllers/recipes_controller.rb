@@ -21,6 +21,7 @@ class RecipesController < ApplicationController
   def update
       @recipe = Recipe.find(params[:id])
       @recipe.update(receipe_params)
+      redirect_to recipe
     end
 
  private
