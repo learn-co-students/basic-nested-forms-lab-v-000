@@ -1,1 +1,8 @@
-<%= render 'form', recipe: @recipe %>
+<%# <%= render 'form', recipe: @recipe %> 
+<%# <%= binding.pry %> 
+<%= form_for @recipe do |f| %>
+<%# <%= binding.pry %>
+  Title: <%= f.text_field :title %>
+
+<%= f.submit %>
+<% end %>
