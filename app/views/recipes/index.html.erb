@@ -1,5 +1,10 @@
-<ul>
-<% @recipes.each do |recipe| %>
-  <li><%= link_to recipe.title, recipe %></li>
+<h1>Recipes</h1>
+
+<%= @recipes.each do |recipe| %>
+  <h4><%= recipe.title %></h4>
+  <ul>
+    <% recipe.ingredients.each do |ingredient| %>
+      <li>Ingredient:  <%= ingredient.name %> <br> Quantity: <%= ingredient.quantity %>
+    <% end %>
+  </ul>
 <% end %>
-</ul>
