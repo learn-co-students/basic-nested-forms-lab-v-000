@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     #these are the params that create take to create a new object and displays them on the show page
+    #Name form inputs correctly to create a nested params hash with belongs to and has many associated data.
     params.require(:recipe).permit(:title, ingredients_attributes: [
       :id,
       :name,
