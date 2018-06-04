@@ -2,9 +2,7 @@
 
 <h3>Ingredients</h2>
 <ul>
-<% binding.pry %>
 <% @recipe.ingredients.map do |ingredient| %>
-<% binding.pry %>
   <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
 <% end %>
 </ul>

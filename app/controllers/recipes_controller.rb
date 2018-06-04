@@ -11,7 +11,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @recipe.ingredients.build(name: 'name', quantity: 'quantity')
     @recipe.ingredients.build(name: 'name', quantity: 'quantity')
-    @recipe.ingredients.build(name: 'name', quantity: 'quantity')
 
   end
 
@@ -24,12 +23,11 @@ class RecipesController < ApplicationController
   def recipe_params
   params.require(:recipe).permit(
     :title,
-    ingredient_attributes: [
+     ingredients_attributes: [
       :name,
       :quantity,
       :name,
       :quantity
-
     ]
   )
 end
