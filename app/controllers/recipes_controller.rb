@@ -1,7 +1,5 @@
+
 class RecipesController < ApplicationController
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
 
   def index
     @recipes = Recipe.all
@@ -12,5 +10,21 @@ class RecipesController < ApplicationController
   end
 
   def create
+    Recipe.create(recipe_params)
+    redirect_to recipe_path
   end
+  
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+  
+  private
+  
+  def recipe_params
+    params.require(:recipe).permit(
+      :title,
+      
+    )
+  end
+  
 end
