@@ -26,7 +26,7 @@ binding.pry
   def recipe_params
     params.require(:recipe).permit(
       :title,
-      ingredients: [
+      ingredients_attributes: [
         :quantity,
         :name
       ]
