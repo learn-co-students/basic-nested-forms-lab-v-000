@@ -1,6 +1,7 @@
 require 'pry'
 
 class RecipesController < ApplicationController
+  
   def show
     @recipe = Recipe.find(params[:id])
   end
@@ -16,8 +17,9 @@ class RecipesController < ApplicationController
   end
 
   def create
-recipe = Recipe.create(recipe_params)
- redirect_to recipe_path
+    recipe = Recipe.create(recipe_params)
+    
+    redirect_to recipe
   end
 
  private
