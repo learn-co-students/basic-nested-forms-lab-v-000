@@ -1,17 +1,18 @@
-<%= form_for @recipe do |f| %>
-  Title: <%= f.text_field :title %>
+# <%##= f.text_field :title %>
 
-  <%= f.fields_for :ingredients do |ing|%>
+#   <%#= f.fields_for :ingredients do |ing|%>
     
-    <%= ing.label :name%>   
-    <%= ing.text_field :name%>
+#     <%#= ing.label :name%>   
+#     <%#= ing.text_field :name%>
 
     
-   <br>
-    <%= ing.label :quantity%>
-    <%= ing.text_field :quantity%>
-   <%end%>
+#    <br>
+#     <%#= ing.label :quantity%>
+#     <%#= ing.text_field :quantity%>
+#    <%#end%>
 
-   <%= f.submit%>
+#    <%#= f.submit%>
 
-<% end %>
+# <%# end %>
+
+# We dont really need to add anything in here. 
