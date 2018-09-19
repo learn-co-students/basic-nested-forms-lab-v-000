@@ -1,1 +1,6 @@
+<% if flash[:notice] %>
+  <div class="warning"><h1> <%= flash[:notice] %></h1></div>
+<% end %>
+
+<h1>Enter New Recipie:</h1>
 <%= render 'form', recipe: @recipe %>
