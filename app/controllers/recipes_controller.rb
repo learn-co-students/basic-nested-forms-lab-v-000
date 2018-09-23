@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    # has_many adds collection.build
     @recipe.ingredients.build(name: "first ingredient")
     @recipe.ingredients.build(name: "second ingredient")
   end
