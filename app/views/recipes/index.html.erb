@@ -1,5 +1,8 @@
 <ul>
 <% @recipes.each do |recipe| %>
   <li><%= link_to recipe.title, recipe %></li>
+  <% recipe.ingredients.each do |ingredient| %>
+  <li><%= ingredient.name%> - <%= ingredient.quantity %></li>
+  <% end %>
 <% end %>
 </ul>
