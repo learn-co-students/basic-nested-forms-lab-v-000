@@ -1,1 +1,33 @@
-<%= render 'form', recipe: @recipe %>
+<!-- <%= render 'form', recipe: @recipe %> -->
+<!--
+<form action="/recipes" method="POST">
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+  <label for="title">Title:</label>
+  <input id="title" type="text" name="recipe[title]" ><br>
+  Ingredients:<br>
+    1. <input type="text" name="recipe[ingredients_attributes][][name]">
+    Quantity: <input type="text" name="recipe[ingredients_attributes][][quantity]"><br>
+    2. <input type="text" name="recipe[ingredients_attributes][][name]">
+    Quantity: <input type="text" name="recipe[ingredients_attributes][][quantity]"><br>
+    3. <input type="text" name="recipe[ingredients_attributes][][name]">
+    Quantity: <input type="text" name="recipe[ingredients_attributes][][quantity]"><br>
+
+    <br>
+  <input type="submit" value="Submit">
+</form> -->
+
+<%= form_for @recipe do |f| %>
+  <%= f.label :title, "Recipe:" %>
+  <%= f.text_field :title %><br>
+
+  <%= f.fields_for :ingredients do |ingredient| %>
+    <%= ingredient.label :name, "Ingredient:" %>
+    <%= ingredient.text_field :name %>
+
+    <%= ingredient.label :quantity, "Quantity:" %>
+    <%= ingredient.text_field :quantity %><br>
+  <% end %>
+  <br>
+  <%= f.submit %>
+<% end %>
