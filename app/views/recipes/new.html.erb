@@ -18,16 +18,21 @@
 </form> -->
 
 <%= form_for @recipe do |f| %>
-  <%= f.label :title, "Recipe:" %>
-  <%= f.text_field :title %><br>
+  <fieldset>
+    <legend>Recipe</legend>
+    <%= f.label :title, "Name:" %>
+    <%= f.text_field :title %>
+  </fieldset>
 
-  <%= f.fields_for :ingredients do |ingredient| %>
-    <%= ingredient.label :name, "Ingredient:" %>
-    <%= ingredient.text_field :name %>
+    <%= f.fields_for :ingredients do |ingredient| %>
+      <fieldset>
+        <%= ingredient.label :name, "Ingredient:" %>
+        <%= ingredient.text_field :name %>
 
-    <%= ingredient.label :quantity, "Quantity:" %>
-    <%= ingredient.text_field :quantity %><br>
-  <% end %>
+        <%= ingredient.label :quantity, "Quantity:" %>
+        <%= ingredient.text_field :quantity %><br>
+      </fieldset>
+    <% end %>
   <br>
   <%= f.submit %>
 <% end %>
