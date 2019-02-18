@@ -9,13 +9,12 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    binding.pry 
-    @recipe.ingredients.build(params[:recipe][:ingredients_attributes][0])
-    @recipe.ingredients.build(params[:recipe][:ingredients_attributes][1])
+    @recipe.ingredients.build(name: 'ingredient_1')
+    @recipe.ingredients.build(name: 'ingredient_2')
   end
 
   def create
-    recipe = Recipe.create(recipe_params)
+    @recipe = Recipe.create(recipe_params)
     redirect_to recipe_path
   end
 
