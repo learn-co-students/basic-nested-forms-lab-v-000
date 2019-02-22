@@ -9,8 +9,22 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    #By putting line 13 and 14, it gives me two fields of indgredients
+    @recipe.ingredients.build
+    @recipe.ingredients.build
   end
 
   def create
+    recipe = Recipe.create(recipe_params)
+    redirect_to controller: 'recipes', action: 'index' 
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:title, ingredients_attributes: [
+      :name,
+      :quantity
+    ])
   end
 end
