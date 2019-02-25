@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
-  #def show
-    #@recipe = Recipe.find(params[:id])
-  #end
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
 
   def index
     @recipes = Recipe.all
@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
 
   def create
     recipe = Recipe.create(recipe_params)
-    redirect_to recipe_path
+    redirect_to recipe_path(recipe)
   end
 
 
