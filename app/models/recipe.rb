@@ -1,8 +1,23 @@
 class Recipe < ActiveRecord::Base
   has_many :ingredients
+  accepts_nested_attributes_for :ingredients
 
-  # def recipe_attributes=(recipe)
-  #   self.recipe = Recipe.find_or_create_by(title: recipe.title)
-  #   self.recipe.update(recipe)
+  # ingredients_attributes.each do |i, ingredients_attributes|
+  #   self.ingredients.build(ingredients_attributes)
   # end
+
+  def ingredients_attributes=(ingredients_attributes)
+    # byebug
+    # ingredients_attributes.each do |ingredient|
+    #   Ingredient.where(:name => ingredients_attributes[:name]).first_or_create do
+    #     ingredient.name = ingredients_attributes[:name]
+    #     ingredient.quantity = ingredients_attributes[:quantity]
+    #   end
+    # end
+    ingredients_attributes.each do
+      # byebug
+      self.ingredients.build(ingredients_attributes)
+      # byebug
+    end
+  end
 end

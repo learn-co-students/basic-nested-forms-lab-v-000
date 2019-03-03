@@ -8,25 +8,29 @@ class RecipesController < ApplicationController
   end
 
   def new
+    # byebug
     @recipe = Recipe.new
     # []
-    @recipe.addresses.build(address_type: 'work')
-    @recipe.addresses.build(address_type: 'home')
+    @recipe.ingredients.build(name: params[:name])
+    # byebug
+    @recipe.ingredients.build(quantity: params[:quantity])
   end
 
   def create
+    byebug
+    @recipe = Recipe.new(recipe_params)
+
+    if @recipe.save
+      redirect_to @recipe
+    else
+      render :new
+    end
   end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(
-      :title,
-      ingregients_attributes: [
-        :name,
-        :quantity
-        ]
-      ]
-    )
+    # byebug
+    params.require(:recipe).permit(:title, :ingredients_attributes => [:name, :quantity])
   end
 end
