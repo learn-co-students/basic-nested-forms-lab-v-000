@@ -8,16 +8,12 @@ class RecipesController < ApplicationController
   end
 
   def new
-    # byebug
     @recipe = Recipe.new
-    # []
     @recipe.ingredients.new
-    # byebug
     @recipe.ingredients.new
   end
 
   def create
-    # byebug
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
@@ -30,8 +26,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    # byebug
-    # params.require(:recipe).permit(:title, :ingredients_attributes => [:name, :quantity])
     params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
   end
 end
