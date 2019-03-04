@@ -6,18 +6,18 @@ class Recipe < ActiveRecord::Base
   #   self.ingredients.build(ingredients_attributes)
   # end
 
-  def ingredients_attributes=(ingredients_attributes)
-    # byebug
-    # ingredients_attributes.each do |ingredient|
-    #   Ingredient.where(:name => ingredients_attributes[:name]).first_or_create do
-    #     ingredient.name = ingredients_attributes[:name]
-    #     ingredient.quantity = ingredients_attributes[:quantity]
-    #   end
-    # end
-    ingredients_attributes.each do
-      # byebug
-      self.ingredients.build(ingredients_attributes)
-      # byebug
-    end
-  end
+  # def ingredients_attributes=(ingredients_attributes)
+  #   # byebug
+  #   # ingredients_attributes.each do |ingredient|
+  #   #   Ingredient.where(:name => ingredients_attributes[:name]).first_or_create do
+  #   #     ingredient.name = ingredients_attributes[:name]
+  #   #     ingredient.quantity = ingredients_attributes[:quantity]
+  #   #   end
+  #   # end
+  #   ingredients_attributes.each do
+  #     # byebug
+  #     self.ingredients.build(ingredients_attributes)
+  #     # byebug
+  #   end
+  # end
 end
