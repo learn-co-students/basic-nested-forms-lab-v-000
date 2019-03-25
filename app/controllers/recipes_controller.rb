@@ -9,11 +9,20 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.build(quantity: '0') 
+    @recipe.ingredients.build(id: 1)
+    @recipe.ingredients.build(id: 2)
+    #binding.pry
+
   end
 
   def create
     Recipe.create(recipe_params)
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
