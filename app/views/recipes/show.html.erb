@@ -4,6 +4,6 @@
 
 <ul>
 <% @recipe.ingredients.each do |ingredient| %>
-  <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
+  <li><%= "#{ingredient.name} X #{ingredient.quantity} ID: #{ingredient.id}" %></li>
 <% end %>
 </ul>
