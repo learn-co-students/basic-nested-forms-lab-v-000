@@ -1,9 +1,14 @@
-<h2> <%= @recipe.title %></h2>
+<h2>Recipe Name: <%= @recipe.title %></h2>
 
-<h3>Ingredients</h2>
+<h3>Ingredients:</h2>
 
-<ul>
-<% @recipe.ingredients.each do |ingredient| %>
-  <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
-<% end %>
-</ul>
+
+  <% if !@recipe.ingredients.empty? %>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
+      <% end %>
+    <% else %>
+      <p> No Ingredients! </p>
+    </ul>
+  <% end %>
