@@ -20,3 +20,4 @@ describe "the recipe form", :type => :feature do
     expect(Recipe.last.ingredients.map(&:name)).to eq ['sugar', 'vanilla']
   end
 end
+ 
