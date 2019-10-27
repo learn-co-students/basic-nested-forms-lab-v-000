@@ -1,1 +1,26 @@
-<%= render 'form', recipe: @recipe %>
+<!-- <%= render 'form', recipe: @recipe %> -->
+<h1>Create a New Recipe</h1>
+
+<%= form_for @recipe do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <p><em>The recipe calls for the following ingredients:</em></p>
+
+  <%= f.fields_for :ingredients do |ingredient| %>
+    <%= ingredient.label :name %>
+    <%= ingredient.text_field :name %><br>
+
+    <%= ingredient.label :quantity %>
+    <%= ingredient.text_field :quantity %><br><br>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
+
+
+<!-- We ask Rails to generate fields_for each of the recipe instance's ingredient instances,
+but when we first create a recipe instance, it has no ingredient instances belonging to it.
+f.fields_for :ingredients will have no ingredient fields if there are no ingredients,
+so when we create a recipe instance in the #new action of RecipesController,
+we'll add two empty ingredients to fill out
