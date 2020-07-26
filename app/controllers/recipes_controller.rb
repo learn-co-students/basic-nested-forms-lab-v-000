@@ -5,12 +5,23 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+
   end
 
   def new
     @recipe = Recipe.new
+    (1..2).each {@recipe.ingredients.build(name: "test")}
   end
 
   def create
+
+     redirect_to Recipe.create(recipe_params)
+
   end
+
+  private
+  def recipe_params
+    params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
+  end
+
 end
